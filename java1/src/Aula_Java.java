@@ -6,14 +6,14 @@ public class Aula_Java {
     
     static int tamanhoX, tamanhoY, quantidadeDeNavios, limiteMaximoDeNavios;
     static int tabuleiroJogador1[][], tabuleiroJogador2[][];
+    static Scanner input = new Scanner(System.in);
     
 public static void obtertTamanhoDosTabuleiros () {
-        Scanner input = null;
-        for (;;) {
+
+            for (;;) {
             boolean tudoOK = false;
             try {
-                input = new Scanner(System.in);
-                System.out.println("Digite a altura do tabuleiro: ");
+                                System.out.println("Digite a altura do tabuleiro: ");
                 tamanhoX = input.nextInt();
                 System.out.println("Digite o comprimento do tabuleiro: ");
                 tamanhoY = input.nextInt();
@@ -24,8 +24,8 @@ public static void obtertTamanhoDosTabuleiros () {
             if(tudoOK) {
                 input.close();
                 break;
-            }
-            }
+}
+}
 }
 
 public static void calcularQuantidadeMaximaDeNaviosNoJogo(){
@@ -39,17 +39,21 @@ public static void iniciandoOsTamanhosDosTabuleiros (){
     
 }
 
+public static void obterQuantidadeDeNaviosNoJogo (){
+        System.out.println("Digite a quantidade de navios do jogo:");
+        System.out.println("Max: " + limiteMaximoDeNavios + " navios");
+        quantidadeDeNavios = input.nextInt();
+        if (quantidadeDeNavios < 1 && quantidadeDeNavios > limiteMaximoDeNavios) {
+        quantidadeDeNavios = limiteMaximoDeNavios;
+        }
+        }
+
 public static void main(String[] args) {
 
-        obtertTamanhoDosTabuleiros (); 
+        obtertTamanhoDosTabuleiros(); 
         calcularQuantidadeMaximaDeNaviosNoJogo();
-        iniciandoOsTamanhosDosTabuleiros ();
-        Scanner input = new Scanner(System.in);
-        System.out.println("Digite a quantidade de navios do jogo:");
-        System.out.println("Max: " + limiteMaximoDeNavios + "navio");
-        quantidadeDeNavios = input.nextInt();
-        
-        
-        
+        iniciandoOsTamanhosDosTabuleiros();
+        obterQuantidadeDeNaviosNoJogo();
+        input.close();              
 }   
 }
